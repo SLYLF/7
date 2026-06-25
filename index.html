@@ -1,167 +1,262 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sweet Legacy Youth Leadership Foundation</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        section, header { scroll-margin-top: 100px; }
+        .card-border {
+            border: 2px solid #e5e7eb;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            background-color: white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 3D Flip Card Styles */
+        .perspective {
+            perspective: 1000px;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+            cursor: pointer;
+        }
+
+        /* HOVER triggers the flip */
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+        }
+
+        .flip-card-back {
+            background-color: #fdfaf5; /* Example back card color */
+            transform: rotateY(180deg);
+            color: #1f2937; /* Dark text for contrast */
+            text-align: left;
+            align-items: flex-start;
+        }
+
+        /* Leadership card back needs flex for name/title */
+        .flip-card-back-leadership {
+            background-color: #f0f9ff; /* Blue tint for leadership */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        /* Adjust heights for flip cards */
+        .focus-card-height { height: 200px; }
+        .leadership-card-height { height: 320px; } /* Increased height for leadership profile */
+
+    </style>
 </head>
 <body class="bg-gray-50 text-gray-800 antialiased font-sans">
 
     <nav class="bg-white shadow-sm sticky top-0 z-50">
         <div class="max-w-6xl mx-auto p-4 md:px-8 md:py-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-            
             <div class="flex items-center gap-3">
-                <img class="w-[50px] h-auto object-contain" src="Sweetlegacy LOGO1.jpg" alt="Sweet Legacy Logo">
+                <img class="w-[50px] h-auto object-contain" src="Sweetlegacy LOGO1.jpg" alt="Logo">
                 <h1 class="text-base md:text-xl font-bold tracking-tight text-gray-900 uppercase">
                     Sweet Legacy Youth Leadership Foundation Inc
                 </h1>
             </div>
-            
             <div class="flex w-full md:w-auto items-center flex-wrap gap-2.5 text-sm font-medium">
                 <a href="#about" class="font-bold text-gray-600 hover:text-gray-900 transition mr-2">About</a>
+                <a href="#my-story" class="font-bold text-gray-600 hover:text-gray-900 transition mr-2">My Story</a>
                 <a href="#focus" class="font-bold text-gray-600 hover:text-gray-900 transition mr-2">Our Focus</a>
                 <a href="#leadership" class="font-bold text-gray-600 hover:text-gray-900 transition mr-2">Leadership</a>
                 <a href="#contact" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition text-center whitespace-nowrap">Volunteer</a>
                 <a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-16468" target="_blank" class="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 transition inline-block text-center whitespace-nowrap">Donate</a>
             </div>
-
         </div>
     </nav>
 
-    <header class="bg-white border-b border-gray-100">
-        <div class="max-w-4xl mx-auto px-6 py-16 md:py-24 text-center">
+    <header class="py-16">
+        <div class="max-w-4xl mx-auto px-6 text-center">
             <span class="text-blue-600 text-sm font-bold tracking-widest uppercase block mb-3">Building Legacies</span>
-            <h1 class="text-4xl md:text-5xl font-black tracking-tight text-gray-900 mb-6 leading-tight">
-                Empowering the Next Generation of Leaders
-            </h1>
-            <p class="text-base md:text-lg text-gray-600 max-w-2xl mx-auto mb-8 leading-relaxed">
-                We build sustainable, community-driven pathways for youth leadership, development, and long-term community impact.
-            </p>
-            <div class="flex justify-center gap-4">
-                <a href="#contact" class="bg-blue-600 text-white font-medium px-6 py-3 rounded-md hover:bg-blue-700 transition shadow-sm">
-                    Join Our Mission
-                </a>
-                <a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-16468" target="_blank" class="bg-green-600 text-white font-medium px-6 py-3 rounded-md hover:bg-green-700 transition shadow-sm">
-                    Support Our Work
-                </a>
-            </div>
+            <h1 class="text-4xl md:text-5xl font-black tracking-tight text-gray-900 mb-6 leading-tight">Empowering the Next Generation of Leaders</h1>
+            <p class="text-base md:text-lg text-gray-600 max-w-2xl mx-auto mb-8">We build sustainable, community-driven pathways for youth leadership, development, and long-term community impact.</p>
         </div>
     </header>
 
-    <section id="about" class="max-w-4xl mx-auto px-6 py-16 md:py-20">
-        <div class="text-center mb-12">
-            <span class="text-blue-600 text-xs font-bold tracking-widest uppercase block mb-2">Our Mission</span>
-            <h2 class="text-2xl md:text-3xl font-bold text-gray-950">Who We Are</h2>
-        </div>
-        <div class="bg-white border border-gray-100 rounded-xl p-6 md:p-10 shadow-xs">
-            <p class="text-gray-600 text-base md:text-lg leading-relaxed text-center italic">
-                "Sweet Legacy Youth Leadership Foundation is dedicated to fostering structural support, growth mindsets, and intentional leadership training for youth, transforming passion into tangible community outcomes."
-            </p>
+    <section id="my-story" class="my-16 mx-auto max-w-5xl px-6">
+        <div class="card-border bg-[#fdfaf5] p-12">
+            <h2 class="text-4xl font-black italic mb-8 border-b border-gray-300 pb-4">My Story</h2>
+            <div class="flex flex-col md:flex-row gap-12">
+                <div class="md:w-2/3 space-y-6 text-gray-800 text-lg leading-relaxed">
+                    <p>I grew up in the small town of Olympia, Washington, a place that shaped my understanding of what it means to belong to a community. The Sweet Legacy Youth Leadership Foundation is built upon a 30-year history of service that began as my grandmother’s lifelong dream. Her dedication to her own 501(c)(3) nonprofit in Olympia was my first true inspiration. Every Christmas and Thanksgiving, we would gather at our local church to feed the homeless, an experience that taught me the profound value of community, family, and friendship. I created this foundation to honor those roots and to ensure that the spirit of selfless service continues to flourish for the next generation.</p>
+                    <p>My path later took me to a structured youth center in Chattanooga, TN, where I completed an internship. Working there, I witnessed firsthand the transformative power of a safe, guided environment for young people. It was there I realized that leadership isn't just taught; it is cultivated through consistent, intentional support. It was a little village setup for youth with our parents; they had a house mom and dad and a structured environment for the kids, featuring a clothing giveaway and sporting activities like a basketball court. It inspired me to do something similar, mixed with my own ideas of being more sustainable and passing that down to the youth, such as gardens and growing your own vegetables.</p>
+                    <p>Later, I became the owner of an organic farm in Washington state. Running that farm taught me the most profound lessons of my life: that true growth cannot be rushed, and that it requires deep patience, intentionality, and the right environment to flourish. Just as I nurtured life from the soil, I realized that our youth require that same deliberate, patient environment to reach their full potential.</p>
+                </div>
+                <div class="md:w-1/3 flex flex-col items-center">
+                    <div class="w-full aspect-[3/4] bg-gray-200 mb-6 border border-gray-300 flex items-center justify-center text-gray-500 italic">
+                        Insert Portrait Here
+                    </div>
+                    <p class="font-bold text-xl uppercase">Chantal O’Neill</p>
+                    <p class="text-blue-600 font-semibold uppercase tracking-wider text-sm mb-6">President & Treasurer</p>
+                    <div class="border-t border-gray-300 pt-4 w-full text-center">
+                        <p class="italic text-gray-500 text-sm">Founder's Signature</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section id="focus" class="bg-gray-100/60 border-y border-gray-200/50 py-16 md:py-20">
+    <section id="about" class="max-w-4xl mx-auto px-6 py-16">
+        <div class="card-border text-center">
+            <h2 class="text-3xl font-bold mb-6">Who We Are</h2>
+            <p class="text-lg italic text-gray-600">"Sweet Legacy Youth Leadership Foundation is dedicated to fostering structural support, growth mindsets, and intentional leadership training."</p>
+        </div>
+    </section>
+
+    <section id="focus" class="bg-gray-100 py-16">
         <div class="max-w-5xl mx-auto px-6">
-            <div class="text-center mb-12 md:mb-16">
+            <div class="text-center mb-12">
                 <span class="text-blue-600 text-xs font-bold tracking-widest uppercase block mb-2">What We Do</span>
-                <h2 class="text-2xl md:text-3xl font-bold text-gray-950">Core Pillars of Impact</h2>
+                <h2 class="text-3xl font-bold text-gray-950">Core Pillars of Impact</h2>
             </div>
-           
-            <div class="grid md:grid-cols-3 gap-6 md:gap-8">
-                <div class="bg-white p-6 md:p-8 rounded-xl border border-gray-100 shadow-xs">
-                    <div class="w-12 h-12 bg-blue-50 text-blue-600 flex items-center justify-center rounded-lg mb-6 text-xl">
-                        <i class="fa-solid fa-graduation-cap"></i>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Leadership Training Flip Card (Hover) -->
+                <div class="flip-card focus-card-height perspective">
+                    <div class="flip-card-inner card-border">
+                        <div class="flip-card-front">
+                            <i class="fa-solid fa-graduation-cap text-3xl text-blue-600 mb-4"></i>
+                            <h3 class="font-bold">Leadership Training</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <p class="text-sm">We provide tailored programs that cultivate essential leadership skills, empowering youth to become confident, ethical decision-makers.</p>
+                        </div>
                     </div>
-                    <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-3">Leadership Training</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">
-                        Equipping youth with practical management, emotional intelligence, and organizational skills.
-                    </p>
                 </div>
-                <div class="bg-white p-6 md:p-8 rounded-xl border border-gray-100 shadow-xs">
-                    <div class="w-12 h-12 bg-blue-50 text-blue-600 flex items-center justify-center rounded-lg mb-6 text-xl">
-                        <i class="fa-solid fa-users"></i>
+
+                <!-- Community Solutions Flip Card (Hover) -->
+                <div class="flip-card focus-card-height perspective">
+                    <div class="flip-card-inner card-border">
+                        <div class="flip-card-front">
+                            <i class="fa-solid fa-users text-3xl text-blue-600 mb-4"></i>
+                            <h3 class="font-bold">Community Solutions</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <p class="text-sm">We foster sustainable, local solutions by connecting young people with community projects, driving meaningful long-term change.</p>
+                        </div>
                     </div>
-                    <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-3">Community Solutions</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">
-                        Engaging youth directly in designing and executing local development and sustainability projects.
-                    </p>
                 </div>
-                <div class="bg-white p-6 md:p-8 rounded-xl border border-gray-100 shadow-xs">
-                    <div class="w-12 h-12 bg-blue-50 text-blue-600 flex items-center justify-center rounded-lg mb-6 text-xl">
-                        <i class="fa-solid fa-handshake-angle"></i>
+
+                <!-- Mentorship Flip Card (Hover) -->
+                <div class="flip-card focus-card-height perspective">
+                    <div class="flip-card-inner card-border">
+                        <div class="flip-card-front">
+                            <i class="fa-solid fa-handshake-angle text-3xl text-blue-600 mb-4"></i>
+                            <h3 class="font-bold">Mentorship</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <p class="text-sm">We pair youth with experienced mentors, providing guided, consistent support to nurture their personal and professional growth.</p>
+                        </div>
                     </div>
-                    <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-3">Mentorship</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">
-                        Connecting emerging voices with established professionals for consistent, intentional guidance.
-                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="leadership" class="max-w-5xl mx-auto px-6 py-16 md:py-20">
-        <div class="text-center mb-12 md:mb-16">
-            <span class="text-blue-600 text-xs font-bold tracking-widest uppercase block mb-2">Accountability</span>
-            <h2 class="text-2xl md:text-3xl font-bold text-gray-950">Our Leadership & Board</h2>
-        </div>
-
-        <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            <div class="bg-white border border-gray-100 rounded-xl p-6 text-center shadow-xs">
-                <div class="w-20 h-20 bg-gray-200 rounded-full mx-auto mb-4 flex items-center justify-center text-gray-400 text-2xl">
-                    <i class="fa-solid fa-user"></i>
-                </div>
-                <h3 class="text-lg font-bold text-gray-900">[Your Name / Founder]</h3>
-                <p class="text-blue-600 text-xs font-semibold uppercase tracking-wider mt-1">Executive Director</p>
-            </div>
-
-            <div class="bg-white border border-gray-100 rounded-xl p-6 text-center shadow-xs">
-                <div class="w-20 h-20 bg-gray-200 rounded-full mx-auto mb-4 flex items-center justify-center text-gray-400 text-2xl">
-                    <i class="fa-solid fa-user"></i>
-                </div>
-                <h3 class="text-lg font-bold text-gray-900">[Board Member Name]</h3>
-                <p class="text-blue-600 text-xs font-semibold uppercase tracking-wider mt-1">Board Chair</p>
-            </div>
-
-            <div class="bg-white border border-gray-100 rounded-xl p-6 text-center shadow-xs">
-                <div class="w-20 h-20 bg-gray-200 rounded-full mx-auto mb-4 flex items-center justify-center text-gray-400 text-2xl">
-                    <i class="fa-solid fa-user"></i>
-                </div>
-                <h3 class="text-lg font-bold text-gray-900">[Board Member Name]</h3>
-                <p class="text-blue-600 text-xs font-semibold uppercase tracking-wider mt-1">Treasurer</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="max-w-xl mx-auto px-6 py-16 md:py-20">
+    <section id="leadership" class="max-w-5xl mx-auto px-6 py-16">
         <div class="text-center mb-10">
-            <h2 class="text-2xl md:text-3xl font-bold text-gray-950 mb-3">Join Our Mission</h2>
-            <p class="text-gray-600 text-sm">Have questions or want to partner with us? Drop us a line below.</p>
+            <h2 class="text-3xl font-bold text-gray-950">Our Leadership & Board</h2>
         </div>
-       
-        <form action="https://formspree.io/f/mlgkvakp" method="POST" class="space-y-6">
-            <div>
-                <label class="block text-xs font-bold uppercase text-gray-700 mb-2">Name</label>
-                <input type="text" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-sm">
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
+            <!-- Chantal O'Neill Flip Card (Hover) -->
+            <div class="flip-card leadership-card-height perspective">
+                <div class="flip-card-inner card-border">
+                    <div class="flip-card-front">
+                        <div class="w-20 h-20 bg-gray-200 rounded-full mx-auto mb-4 flex items-center justify-center text-gray-400 text-2xl"><i class="fa-solid fa-user"></i></div>
+                        <h3 class="font-bold">Chantal O'Neill</h3>
+                        <p class="text-blue-600 text-xs font-semibold uppercase mt-1">Executive Director, Founder</p>
+                    </div>
+                    <div class="flip-card-back-leadership flip-card-back">
+                         <p class="text-sm font-semibold mb-3">Goals for Sweet Legacy:</p>
+                        <ul class="text-xs list-disc list-inside space-y-2">
+                            <li>Establishing Sustainable Funding</li>
+                            <li>Building Organic Farm-to-School Initiatives</li>
+                            <li>Mental Landscape Cultivation</li>
+                            <li>Future Campus Plan & Organic Farm Campus Plan</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div>
-                <label class="block text-xs font-bold uppercase text-gray-700 mb-2">Email Address</label>
-                <input type="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-sm">
+
+            <!-- Board Member Flip Card (Hover Template) -->
+            <div class="flip-card leadership-card-height perspective">
+                <div class="flip-card-inner card-border">
+                    <div class="flip-card-front">
+                        <div class="w-20 h-20 bg-gray-200 rounded-full mx-auto mb-4 flex items-center justify-center text-gray-400 text-2xl"><i class="fa-solid fa-user"></i></div>
+                        <h3 class="font-bold">[Board Chair Name]</h3>
+                        <p class="text-blue-600 text-xs font-semibold uppercase mt-1">Board Chair</p>
+                    </div>
+                    <div class="flip-card-back-leadership flip-card-back">
+                         <p class="text-sm font-semibold mb-3">Goals for Sweet Legacy:</p>
+                        <ul class="text-xs list-disc list-inside space-y-2">
+                             <li>Develop strategic partnerships</li>
+                             <li>Enhance program outreach</li>
+                             <li>Oversee financial health</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div>
-                <label class="block text-xs font-bold uppercase text-gray-700 mb-2">Message</label>
-                <textarea name="message" rows="4" required class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-sm"></textarea>
+
+            <!-- Treasurer Flip Card (Hover Template) -->
+            <div class="flip-card leadership-card-height perspective">
+                <div class="flip-card-inner card-border">
+                    <div class="flip-card-front">
+                        <div class="w-20 h-20 bg-gray-200 rounded-full mx-auto mb-4 flex items-center justify-center text-gray-400 text-2xl"><i class="fa-solid fa-user"></i></div>
+                        <h3 class="font-bold">[Treasurer Name]</h3>
+                        <p class="text-blue-600 text-xs font-semibold uppercase mt-1">Treasurer</p>
+                    </div>
+                    <div class="flip-card-back-leadership flip-card-back">
+                         <p class="text-sm font-semibold mb-3">Goals for Sweet Legacy:</p>
+                        <ul class="text-xs list-disc list-inside space-y-2">
+                             <li>Maintain financial accountability</li>
+                             <li>Secure diverse grant funding</li>
+                             <li>Ensure compliance and sustainability</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <button type="submit" class="w-full bg-gray-950 text-white font-medium py-3 rounded-md hover:bg-gray-900 transition text-sm shadow-xs">
-                Send Message
-            </button>
-        </form>
+        </div>
     </section>
 
-    <footer class="bg-white border-t border-gray-100 py-8 text-center text-xs text-gray-500">
-        <p>&copy; 2026 Sweet Legacy Youth Leadership Foundation. All rights reserved.</p>
-    </footer>
+    <section id="contact" class="max-w-xl mx-auto px-6 py-16">
+        <div class="card-border">
+            <h2 class="text-2xl font-bold text-center mb-6">Join Our Mission</h2>
+            <form action="https://formspree.io/f/mlgkvakp" method="POST" class="space-y-4">
+                <input type="text" name="name" placeholder="Name" class="w-full p-3 border rounded">
+                <input type="email" name="email" placeholder="Email" class="w-full p-3 border rounded">
+                <textarea name="message" placeholder="Message" class="w-full p-3 border rounded"></textarea>
+                <button type="submit" class="w-full bg-black text-white p-3 rounded">Send Message</button>
+            </form>
+        </div>
+    </section>
 
 </body>
 </html>
