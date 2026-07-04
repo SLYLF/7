@@ -20,7 +20,7 @@
 
         /* Dynamic Hover Border Effect */
         .card-border:hover {
-            border-color: #2563eb; /* Tailwinds blue-600 */
+            border-color: #2563eb; /* Tailwind blue-600 */
             box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.1), 0 4px 6px -2px rgba(37, 99, 235, 0.05);
         }
 
@@ -37,10 +37,13 @@
             transition: transform 0.8s;
             transform-style: preserve-3d;
             cursor: pointer;
+            border-radius: 0.75rem;
         }
 
-        /* HOVER triggers the flip */
-        .flip-card:hover .flip-card-inner {
+        /* HOVER, ACTIVE, and JS-toggled classes trigger the flip */
+        .flip-card:hover .flip-card-inner,
+        .flip-card:active .flip-card-inner,
+        .flip-card.flipped .flip-card-inner {
             transform: rotateY(180deg);
         }
 
@@ -57,6 +60,7 @@
             padding: 1.5rem;
             top: 0;
             left: 0;
+            overflow: hidden;
         }
 
         .flip-card-back {
@@ -78,8 +82,9 @@
         }
 
         /* Adjust heights for flip cards */
-        .focus-card-height { height: 200px; }
-        .leadership-card-height { height: 350px; } 
+        .focus-card-height { height: 220px; }
+        .gallery-card-height { height: 220px; }
+        .leadership-card-height { height: 360px; } 
 
     </style>
 </head>
@@ -87,20 +92,23 @@
 
     <!-- Navigation Header -->
     <nav class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto p-4 md:px-8 md:py-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+        <div class="max-w-6xl mx-auto p-4 md:px-8 md:py-3 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
             <div class="flex items-center gap-3">
-                <img class="w-[50px] h-auto object-contain" src="Sweetlegacy LOGO1.jpg" alt="Logo">
-                <h1 class="text-base md:text-xl font-bold tracking-tight text-gray-900 uppercase">
+                <img class="w-[45px] h-auto object-contain" src="Sweetlegacy LOGO1.jpg" alt="Logo">
+                <h1 class="text-xs md:text-base font-bold tracking-tight text-gray-900 uppercase">
                     Sweet Legacy Youth Leadership Foundation Inc
                 </h1>
             </div>
-            <div class="flex w-full md:w-auto items-center flex-wrap gap-2.5 text-sm font-medium">
-                <a href="#my-story" class="font-bold text-gray-600 hover:text-gray-900 transition mr-2">My Story</a>
-                <a href="#who-we-are" class="font-bold text-gray-600 hover:text-gray-900 transition mr-2">About</a>
-                <a href="#focus" class="font-bold text-gray-600 hover:text-gray-900 transition mr-2">Our Focus</a>
-                <a href="#leadership" class="font-bold text-gray-600 hover:text-gray-900 transition mr-2">Leadership</a>
-                <a href="#contact" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition text-center whitespace-nowrap">Volunteer</a>
-                <a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-16468" target="_blank" class="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 transition inline-block text-center whitespace-nowrap">Donate</a>
+            <!-- All section links fully connected and formatted to prevent line-wrapping layout bugs -->
+            <div class="flex w-full md:w-auto items-center flex-wrap gap-2 text-[11px] md:text-xs font-semibold tracking-wide uppercase">
+                <a href="#my-story" class="text-gray-600 hover:text-gray-900 transition px-1 py-1">My Story</a>
+                <a href="#who-we-are" class="text-gray-600 hover:text-gray-900 transition px-1 py-1">About</a>
+                <a href="#focus" class="text-gray-600 hover:text-gray-900 transition px-1 py-1">Our Focus</a>
+                <a href="#leadership" class="text-gray-600 hover:text-gray-900 transition px-1 py-1">Leadership</a>
+                <a href="#creed" class="text-gray-600 hover:text-gray-900 transition px-1 py-1">Creed</a>
+                <a href="#gallery" class="text-gray-600 hover:text-gray-900 transition px-1 py-1">Gallery</a>
+                <a href="#contact" class="bg-blue-600 text-white px-2.5 py-1.5 rounded hover:bg-blue-700 transition text-center whitespace-nowrap normal-case">Volunteer</a>
+                <a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-16468" target="_blank" class="bg-green-600 text-white px-2.5 py-1.5 rounded hover:bg-green-700 transition inline-block text-center whitespace-nowrap normal-case">Donate</a>
             </div>
         </div>
     </nav>
@@ -162,7 +170,7 @@
             </div>
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Leadership Training -->
-                <div class="flip-card focus-card-height perspective">
+                <div class="flip-card focus-card-height perspective" onclick="this.classList.toggle('flipped')">
                     <div class="flip-card-inner card-border">
                         <div class="flip-card-front">
                             <i class="fa-solid fa-graduation-cap text-3xl text-blue-600 mb-4"></i>
@@ -178,7 +186,7 @@
                 </div>
 
                 <!-- Community Solutions -->
-                <div class="flip-card focus-card-height perspective">
+                <div class="flip-card focus-card-height perspective" onclick="this.classList.toggle('flipped')">
                     <div class="flip-card-inner card-border">
                         <div class="flip-card-front">
                             <i class="fa-solid fa-users text-3xl text-blue-600 mb-4"></i>
@@ -194,14 +202,14 @@
                 </div>
 
                 <!-- Mentorship -->
-                <div class="flip-card focus-card-height perspective">
+                <div class="flip-card focus-card-height perspective" onclick="this.classList.toggle('flipped')">
                     <div class="flip-card-inner card-border">
                         <div class="flip-card-front">
                             <i class="fa-solid fa-handshake-angle text-3xl text-blue-600 mb-4"></i>
                             <h3 class="font-bold">Mentorship</h3>
                         </div>
-                        <div class="flip-card-back flex flex-col justify-start items-start p-4">
-                            <p class="text-sm font-black uppercase tracking-wider text-blue-600 mb-2 block w-full">Let's Chat</p>
+                        <div class="flip-card-back flex flex-col justify-center items-start p-4">
+                            <div class="text-sm font-black uppercase tracking-wider text-blue-600 mb-1 block w-full">Let's Chat</div>
                             <p class="text-[11px] leading-relaxed text-gray-700">
                                 Real engagement that meets the youth exactly where they are. We ditch the rigid lectures for consistent, present, and intentional support—providing a safe space to talk, ask questions, build confidence, and get real-world guidance whenever they need it.
                             </p>
@@ -219,7 +227,7 @@
         </div>
         <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
             <!-- Chantal O'Neill Card -->
-            <div class="flip-card leadership-card-height perspective">
+            <div class="flip-card leadership-card-height perspective" onclick="this.classList.toggle('flipped')">
                 <div class="flip-card-inner card-border">
                     <div class="flip-card-front">
                         <div class="w-24 h-24 bg-gray-200 rounded-full mx-auto mb-4 overflow-hidden border border-gray-300">
@@ -241,7 +249,7 @@
             </div>
 
             <!-- Sarah Mann Card -->
-            <div class="flip-card leadership-card-height perspective">
+            <div class="flip-card leadership-card-height perspective" onclick="this.classList.toggle('flipped')">
                 <div class="flip-card-inner card-border">
                     <div class="flip-card-front">
                         <div class="w-24 h-24 bg-gray-200 rounded-full mx-auto mb-4 flex items-center justify-center text-gray-400 text-2xl"><i class="fa-solid fa-user"></i></div>
@@ -260,7 +268,7 @@
             </div>
 
             <!-- Gervonda Sanchez Card -->
-            <div class="flip-card leadership-card-height perspective">
+            <div class="flip-card leadership-card-height perspective" onclick="this.classList.toggle('flipped')">
                 <div class="flip-card-inner card-border">
                     <div class="flip-card-front">
                         <div class="w-24 h-24 bg-gray-200 rounded-full mx-auto mb-4 flex items-center justify-center text-gray-400 text-2xl"><i class="fa-solid fa-user"></i></div>
@@ -275,6 +283,100 @@
                              <li>Ensure compliance and sustainability</li>
                         </ul>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Sweet Legacy Creed Block -->
+    <section id="creed" class="bg-gray-900 text-white py-16 text-center px-6">
+        <div class="max-w-3xl mx-auto">
+            <p class="text-base sm:text-lg md:text-xl font-serif italic tracking-wide text-gray-100 leading-relaxed">
+                "True power isn’t rushing the growth; it’s building a foundation so deep that legacy is not what we leave behind—it is the standard we carry forward, ensuring the success of the next generation becomes inevitable."
+            </p>
+            <div class="w-16 h-0.5 bg-blue-500 mx-auto mt-6"></div>
+            <p class="text-xs font-bold uppercase tracking-widest text-blue-400 mt-4">The Sweet Legacy Creed</p>
+        </div>
+    </section>
+
+    <!-- Legacy Gallery Section -->
+    <section id="gallery" class="max-w-5xl mx-auto px-6 py-16">
+        <div class="text-center mb-12">
+            <span class="text-blue-600 text-xs font-bold tracking-widest uppercase block mb-2">Our Footprint</span>
+            <h2 class="text-3xl font-bold text-gray-950">The Legacy Gallery</h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Community Garden -->
+            <div class="flip-card gallery-card-height perspective" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card-inner card-border">
+                    <div class="flip-card-front">
+                        <div class="w-14 h-14 bg-green-50 text-green-600 rounded-full flex items-center justify-center mb-4 text-2xl border border-green-100">
+                            <i class="fa-solid fa-seedling"></i>
+                        </div>
+                        <h3 class="font-bold text-lg text-gray-900">Community Garden</h3>
+                    </div>
+                    <div class="flip-card-back flex flex-col justify-center items-start p-4">
+                        <p class="text-xs font-bold uppercase tracking-wider text-green-600 mb-1">Hands-On Growth</p>
+                        <p class="text-[11px] leading-relaxed text-gray-700">
+                            Cultivating agricultural development, environmental stewardship, and sustainable localized nutrition directly through our upcoming youth-led gardens.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Farm Immersives -->
+            <div class="flip-card gallery-card-height perspective" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card-inner card-border">
+                    <div class="flip-card-front">
+                        <div class="w-14 h-14 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center mb-4 text-2xl border border-blue-100">
+                            <i class="fa-solid fa-tractor"></i>
+                        </div>
+                        <h3 class="font-bold text-lg text-gray-900">Farm Immersives</h3>
+                    </div>
+                    <div class="flip-card-back flex flex-col justify-center items-start p-4">
+                        <p class="text-xs font-bold uppercase tracking-wider text-blue-600 mb-1">Agricultural Studies</p>
+                        <p class="text-[11px] leading-relaxed text-gray-700">
+                            Hands-on field studies and interactive educational trips to regional agricultural lands to learn natural growth systems and farm operations.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Community Service -->
+            <div class="flip-card gallery-card-height perspective" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card-inner card-border">
+                    <div class="flip-card-front">
+                        <div class="w-14 h-14 bg-amber-50 text-amber-600 rounded-full flex items-center justify-center mb-4 text-2xl border border-amber-100">
+                            <i class="fa-solid fa-hand-holding-heart"></i>
+                        </div>
+                        <h3 class="font-bold text-lg text-gray-900">Community Service</h3>
+                    </div>
+                    <div class="flip-card-back flex flex-col justify-center items-start p-4">
+                        <p class="text-xs font-bold uppercase tracking-wider text-amber-600 mb-1">Leadership In Action</p>
+                        <p class="text-[11px] leading-relaxed text-gray-700">
+                            Youth leadership in immediate action, organizing structured volunteer tracks at localized networks and regional soup kitchens.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Metrics Section -->
+    <section class="bg-gray-100 border-t border-b border-gray-200 py-16">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
+                <div>
+                    <p class="text-4xl font-black text-gray-950">$100</p>
+                    <p class="text-xs font-bold uppercase tracking-wider text-blue-600 mt-2">Seed Scholarship Awarded</p>
+                </div>
+                <div>
+                    <p class="text-4xl font-black text-gray-950">4 Weeks</p>
+                    <p class="text-xs font-bold uppercase tracking-wider text-blue-600 mt-2">Intensive Leadership Core</p>
+                </div>
+                <div>
+                    <p class="text-4xl font-black text-gray-950">100%</p>
+                    <p class="text-xs font-bold uppercase tracking-wider text-blue-600 mt-2">Hands-On Practice & Service</p>
                 </div>
             </div>
         </div>
