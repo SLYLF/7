@@ -4,11 +4,16 @@
     <link rel="manifest" href="manifest.json">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sweet Legacy Youth Leadership Foundation - Empowering youth through leadership training, agricultural sustainability, and mentorship.">
     <title>Sweet Legacy Youth Leadership Foundation</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    
+    <!-- Stable Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         section, header { scroll-margin-top: 100px; }
+        
         .card-border {
             border: 2px solid #e5e7eb;
             border-radius: 0.75rem;
@@ -18,16 +23,13 @@
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
-        /* Dynamic Hover Border Effect */
         .card-border:hover {
-            border-color: #2563eb; /* Tailwind blue-600 */
+            border-color: #2563eb;
             box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.1), 0 4px 6px -2px rgba(37, 99, 235, 0.05);
         }
 
         /* 3D Flip Card Styles */
-        .perspective {
-            perspective: 1000px;
-        }
+        .perspective { perspective: 1000px; }
 
         .flip-card-inner {
             position: relative;
@@ -40,9 +42,8 @@
             border-radius: 0.75rem;
         }
 
-        /* HOVER, ACTIVE, and JS-toggled classes trigger the flip */
         .flip-card:hover .flip-card-inner,
-        .flip-card:active .flip-card-inner,
+        .flip-card:focus .flip-card-inner,
         .flip-card.flipped .flip-card-inner {
             transform: rotateY(180deg);
         }
@@ -71,7 +72,6 @@
             align-items: flex-start;
         }
 
-        /* Leadership card back needs flex for name/title */
         .flip-card-back-leadership {
             background-color: #f0f9ff;
             display: flex;
@@ -81,11 +81,8 @@
             padding: 1rem;
         }
 
-        /* Adjust heights for flip cards */
-        .focus-card-height { height: 220px; }
-        .gallery-card-height { height: 220px; }
-        
-        /* Board Card Sizing & Flex Layout */
+        .focus-card-height, .gallery-card-height { height: 220px; }
+
         .leadership-container {
             display: flex;
             flex-wrap: wrap;
@@ -97,8 +94,8 @@
         }
 
         .leadership-card {
-            width: 195px !important;
-            height: 350px !important;
+            width: 210px;
+            height: 350px;
             flex-shrink: 0;
         }
     </style>
@@ -107,23 +104,29 @@
 
     <!-- Navigation Header -->
     <nav class="bg-white shadow-sm sticky top-0 z-50 border-b border-[#8ba080]">
-        <div class="max-w-6xl mx-auto p-4 md:px-8 md:py-3 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+        <div class="max-w-6xl mx-auto p-4 md:px-8 md:py-3 flex flex-wrap justify-between items-center gap-4">
             <div class="flex items-center gap-3">
-                <img class="w-[45px] h-auto object-contain" src="Sweetlegacy LOGO1.jpg" alt="Logo">
+                <img class="w-[45px] h-auto object-contain" src="Sweetlegacy LOGO1.jpg" alt="Sweet Legacy Foundation Logo">
                 <h1 class="text-xs md:text-base font-bold tracking-tight text-gray-900 uppercase">
                     Sweet Legacy Youth Leadership Foundation Inc
                 </h1>
             </div>
-            <!-- All section links fully connected and formatted to prevent line-wrapping layout bugs -->
-            <div class="flex w-full md:w-auto items-center flex-wrap gap-2 text-[11px] md:text-xs font-semibold tracking-wide uppercase">
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="menu-toggle" class="md:hidden text-gray-700 text-xl focus:outline-none" aria-label="Toggle Navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <!-- Navigation Links -->
+            <div id="nav-menu" class="hidden md:flex w-full md:w-auto items-center flex-col md:flex-row gap-2 text-[11px] md:text-xs font-semibold tracking-wide uppercase pt-4 md:pt-0">
                 <a href="#my-story" class="text-gray-600 hover:text-gray-900 transition px-1 py-1">My Story</a>
                 <a href="#who-we-are" class="text-gray-600 hover:text-gray-900 transition px-1 py-1">About</a>
                 <a href="#focus" class="text-gray-600 hover:text-gray-900 transition px-1 py-1">Our Focus</a>
                 <a href="#leadership" class="text-gray-600 hover:text-gray-900 transition px-1 py-1">Leadership</a>
                 <a href="#creed" class="text-gray-600 hover:text-gray-900 transition px-1 py-1">Creed</a>
                 <a href="#gallery" class="text-gray-600 hover:text-gray-900 transition px-1 py-1">Gallery</a>
-                <a href="#contact" class="bg-blue-600 text-white px-2.5 py-1.5 rounded hover:bg-blue-700 transition text-center whitespace-nowrap normal-case">Volunteer</a>
-                <a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-16468" target="_blank" class="bg-green-600 text-white px-2.5 py-1.5 rounded hover:bg-green-700 transition inline-block text-center whitespace-nowrap normal-case">Donate</a>
+                <a href="#contact" class="bg-blue-600 text-white px-2.5 py-1.5 rounded hover:bg-blue-700 transition text-center whitespace-nowrap normal-case w-full md:w-auto">Volunteer</a>
+                <a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-16468" target="_blank" rel="noopener noreferrer" class="bg-green-600 text-white px-2.5 py-1.5 rounded hover:bg-green-700 transition text-center whitespace-nowrap normal-case w-full md:w-auto">Donate</a>
             </div>
         </div>
     </nav>
@@ -131,13 +134,11 @@
     <!-- Hero Header -->
     <header class="relative h-[500px] flex items-center justify-center text-center">
         <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('Gemini_Generated_Image_1himb81himb81him.png');"></div>
-        <div class="absolute inset-0 bg-black opacity-40"></div>
+        <div class="absolute inset-0 bg-black/40"></div>
         <div class="absolute inset-0 z-10 w-full h-full flex flex-col justify-center items-center px-4 text-center">
-            <!-- MAIN HEADING -->
             <h1 class="text-4xl sm:text-5xl font-bold tracking-wide text-white uppercase drop-shadow-lg max-w-4xl">
                 Empowering the Next Generation of Leaders
             </h1>
-            <!-- TAGLINE -->
             <p class="text-lg sm:text-xl font-medium tracking-widest text-white/90 uppercase mt-4 drop-shadow-md">
                 Building Legacies
             </p>
@@ -146,10 +147,10 @@
 
     <!-- My Story Section -->
     <section id="my-story" class="my-16 mx-auto max-w-5xl px-6">
-        <div class="card-border bg-[#fdfaf5] p-12">
-            <h2 class="text-4xl font-black italic mb-8 border-b border-gray-300 pb-4">My Story</h2>
+        <div class="card-border bg-[#fdfaf5] p-8 md:p-12">
+            <h2 class="text-3xl md:text-4xl font-black italic mb-8 border-b border-gray-300 pb-4">My Story</h2>
             <div class="flex flex-col md:flex-row gap-12">
-                <div class="md:w-2/3 space-y-6 text-gray-800 text-lg leading-relaxed">
+                <div class="md:w-2/3 space-y-6 text-gray-800 text-base md:text-lg leading-relaxed">
                     <p>I grew up in the small town of Olympia, Washington, a place that shaped my understanding of what it means to belong to a community. The Sweet Legacy Youth Leadership Foundation is built upon a 30-year history of service that began as my grandmother's lifelong dream. Her dedication to her own 501(c)(3) nonprofit in Olympia was my first true inspiration. Every Christmas and Thanksgiving, we would gather at our local church to feed the homeless, an experience that taught me the profound value of community, family, and friendship. I created this foundation to honor those roots and to ensure that the spirit of selfless service continues to flourish for the next generation.</p>
                     <p>My path later took me to a structured youth center in Chattanooga, TN, where I completed an internship. Working there, I witnessed firsthand the transformative power of a safe, guided environment for young people. It was there I realized that leadership isn't just taught; it is cultivated through consistent, intentional support. It was a little village setup for youth without parents; they had a house mom and dad and a structured environment for the kids, featuring a clothing giveaway and sporting activities like a basketball court. It inspired me to do something similar, mixed with my own ideas of being more sustainable and passing that down to the youth, such as gardens and growing your own vegetables.</p>
                     <p>Later, I became the owner of an organic farm in Washington state. Running that farm taught me the most profound lessons of my life: that true growth cannot be rushed, and that it requires deep patience, intentionality, and the right environment to flourish. Just as I nurtured life from the soil, I realized that our youth require that same deliberate, patient environment to reach their full potential.</p>
@@ -158,10 +159,10 @@
                     <div class="w-full aspect-[3/4] bg-gray-200 mb-6 border border-gray-300 overflow-hidden rounded-md shadow-sm">
                         <img src="img_3777.png" alt="Chantal O'Neill" class="w-full h-full object-cover">
                     </div>
-                    <p class="font-bold text-xl uppercase tracking-wide">Chantal O'Neill</p>
-                    <p class="text-blue-600 font-semibold uppercase tracking-wider text-sm mb-6">President & Treasurer</p>
+                    <p class="font-bold text-xl uppercase tracking-wide text-center">Chantal O'Neill</p>
+                    <p class="text-blue-600 font-semibold uppercase tracking-wider text-sm mb-6 text-center">President & Treasurer</p>
                     <div class="border-t border-gray-300 pt-4 w-full text-center">
-                        <img src="./IMG_3700.jpeg" alt="Signature" class="w-[200px] h-auto mx-auto block">
+                        <img src="./IMG_3700.jpeg" alt="Chantal O'Neill Signature" class="w-[200px] h-auto mx-auto block">
                     </div>
                 </div>
             </div>
@@ -169,10 +170,12 @@
     </section>
 
     <!-- Who We Are Section -->
-    <section id="who-we-are" class="max-w-4xl mx-auto px-6 py-16">
-        <div class="card-border text-center">
+    <section id="who-we-are" class="max-w-4xl mx-auto px-6 py-12">
+        <div class="card-border text-center p-8">
             <h2 class="text-3xl font-bold mb-6">Who We Are</h2>
-            <p class="text-lg italic text-gray-600"> We move beyond traditional mentoring by integrating real-world wisdom with professional rigor. Through immersive workshops—ranging from structured business planning to hands-on agricultural sustainability—we empower youth to cultivate their own legacies with confidence, practicality, and purpose.</p>
+            <p class="text-base md:text-lg italic text-gray-600 leading-relaxed">
+                We move beyond traditional mentoring by integrating real-world wisdom with professional rigor. Through immersive workshops—ranging from structured business planning to hands-on agricultural sustainability—we empower youth to cultivate their own legacies with confidence, practicality, and purpose.
+            </p>
         </div>
     </section>
 
@@ -185,7 +188,7 @@
             </div>
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Leadership Training -->
-                <div class="flip-card focus-card-height perspective" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card focus-card-height perspective" tabindex="0" onclick="this.classList.toggle('flipped')">
                     <div class="flip-card-inner card-border">
                         <div class="flip-card-front">
                             <i class="fa-solid fa-graduation-cap text-3xl text-blue-600 mb-4"></i>
@@ -201,7 +204,7 @@
                 </div>
 
                 <!-- Community Solutions -->
-                <div class="flip-card focus-card-height perspective" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card focus-card-height perspective" tabindex="0" onclick="this.classList.toggle('flipped')">
                     <div class="flip-card-inner card-border">
                         <div class="flip-card-front">
                             <i class="fa-solid fa-users text-3xl text-blue-600 mb-4"></i>
@@ -217,14 +220,14 @@
                 </div>
 
                 <!-- Mentorship -->
-                <div class="flip-card focus-card-height perspective" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card focus-card-height perspective" tabindex="0" onclick="this.classList.toggle('flipped')">
                     <div class="flip-card-inner card-border">
                         <div class="flip-card-front">
                             <i class="fa-solid fa-handshake-angle text-3xl text-blue-600 mb-4"></i>
                             <h3 class="font-bold">Mentorship</h3>
                         </div>
                         <div class="flip-card-back flex flex-col justify-center items-start p-4">
-                            <div class="text-sm font-black uppercase tracking-wider text-blue-600 mb-1 block w-full">Let's Chat</div>
+                            <div class="text-xs font-bold uppercase tracking-wider text-blue-600 mb-1 block w-full">Let's Chat</div>
                             <p class="text-[11px] leading-relaxed text-gray-700">
                                 Real engagement that meets the youth exactly where they are. We ditch the rigid lectures for consistent, present, and intentional support—providing a safe space to talk, ask questions, build confidence, and get real-world guidance whenever they need it.
                             </p>
@@ -242,9 +245,8 @@
         </div>
         
         <div class="leadership-container">
-            
             <!-- Chantal O'Neill Card -->
-            <div class="flip-card leadership-card perspective" onclick="this.classList.toggle('flipped')">
+            <div class="flip-card leadership-card perspective" tabindex="0" onclick="this.classList.toggle('flipped')">
                 <div class="flip-card-inner card-border !bg-white">
                     <div class="flip-card-front">
                         <div class="w-20 h-20 bg-white rounded-full mx-auto mb-3 overflow-hidden border border-gray-300">
@@ -266,7 +268,7 @@
             </div>
 
             <!-- Sarah Mann Card -->
-            <div class="flip-card leadership-card perspective" onclick="this.classList.toggle('flipped')">
+            <div class="flip-card leadership-card perspective" tabindex="0" onclick="this.classList.toggle('flipped')">
                 <div class="flip-card-inner card-border !bg-white">
                     <div class="flip-card-front">
                         <div class="w-20 h-20 bg-white rounded-full mx-auto mb-3 overflow-hidden border border-gray-300">
@@ -287,7 +289,7 @@
             </div>
 
             <!-- Nicole Beach Card -->
-            <div class="flip-card leadership-card perspective" onclick="this.classList.toggle('flipped')">
+            <div class="flip-card leadership-card perspective" tabindex="0" onclick="this.classList.toggle('flipped')">
                 <div class="flip-card-inner card-border !bg-white">
                     <div class="flip-card-front">
                         <div class="w-20 h-20 bg-white rounded-full mx-auto mb-3 overflow-hidden border border-gray-300">
@@ -309,7 +311,7 @@
             </div>
 
             <!-- Geronda Sanchez Card -->
-            <div class="flip-card leadership-card perspective" onclick="this.classList.toggle('flipped')">
+            <div class="flip-card leadership-card perspective" tabindex="0" onclick="this.classList.toggle('flipped')">
                 <div class="flip-card-inner card-border !bg-white">
                     <div class="flip-card-front">
                         <div class="w-20 h-20 bg-white rounded-full mx-auto mb-3 overflow-hidden border border-gray-300">
@@ -328,28 +330,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Deborah Guisto Card -->
-            <div class="flip-card leadership-card perspective" onclick="this.classList.toggle('flipped')">
-                <div class="flip-card-inner card-border !bg-white">
-                    <div class="flip-card-front">
-                        <div class="w-20 h-20 bg-white rounded-full mx-auto mb-3 overflow-hidden border border-gray-300">
-                            <img src="IMG_4980.png" alt="Deborah Guisto" class="w-full h-full object-cover object-center">
-                        </div>
-                        <h3 class="font-bold text-sm">Deborah Guisto</h3>
-                        <p class="text-blue-600 text-xs font-semibold uppercase mt-1">Board Member</p>
-                    </div>
-                    <div class="flip-card-back-leadership flip-card-back overflow-y-auto">
-                        <p class="text-[11px] font-bold mb-1 text-center w-full uppercase tracking-wider">Goals for Sweet Legacy:</p>
-                        <ul class="text-[10px] leading-relaxed list-none space-y-1.5 px-1 text-gray-700">
-                            <li>• <strong>Vision Advisory:</strong> Foundation milestones.</li>
-                            <li>• <strong>Strategy:</strong> Maximizing local youth impact.</li>
-                            <li>• <strong>Integrity:</strong> Core mission advocacy.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </section>
 
@@ -372,7 +352,7 @@
         </div>
         <div class="grid md:grid-cols-3 gap-8">
             <!-- Community Garden -->
-            <div class="flip-card gallery-card-height perspective" onclick="this.classList.toggle('flipped')">
+            <div class="flip-card gallery-card-height perspective" tabindex="0" onclick="this.classList.toggle('flipped')">
                 <div class="flip-card-inner card-border">
                     <div class="flip-card-front">
                         <div class="w-14 h-14 bg-green-50 text-green-600 rounded-full flex items-center justify-center mb-4 text-2xl border border-green-100">
@@ -390,7 +370,7 @@
             </div>
 
             <!-- Farm Immersives -->
-            <div class="flip-card gallery-card-height perspective" onclick="this.classList.toggle('flipped')">
+            <div class="flip-card gallery-card-height perspective" tabindex="0" onclick="this.classList.toggle('flipped')">
                 <div class="flip-card-inner card-border">
                     <div class="flip-card-front">
                         <div class="w-14 h-14 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center mb-4 text-2xl border border-blue-100">
@@ -408,7 +388,7 @@
             </div>
 
             <!-- Community Service -->
-            <div class="flip-card gallery-card-height perspective" onclick="this.classList.toggle('flipped')">
+            <div class="flip-card gallery-card-height perspective" tabindex="0" onclick="this.classList.toggle('flipped')">
                 <div class="flip-card-inner card-border">
                     <div class="flip-card-front">
                         <div class="w-14 h-14 bg-amber-50 text-amber-600 rounded-full flex items-center justify-center mb-4 text-2xl border border-amber-100">
@@ -452,19 +432,37 @@
         <div class="card-border">
             <h2 class="text-2xl font-bold text-center mb-6">Join Our Mission</h2>
             <form action="https://formspree.io/f/mlgkvakp" method="POST" class="space-y-4">
-                <input type="text" name="name" placeholder="Name" required class="w-full p-3 border rounded focus:outline-blue-500">
-                <input type="email" name="email" placeholder="Email" required class="w-full p-3 border rounded focus:outline-blue-500">
-                <textarea name="message" placeholder="Message" required class="w-full p-3 border rounded h-32 focus:outline-blue-500"></textarea>
+                <input type="text" name="name" placeholder="Name" required class="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <input type="email" name="email" placeholder="Email" required class="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <textarea name="message" placeholder="Message" required class="w-full p-3 border rounded h-32 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
                 <button type="submit" class="w-full bg-black text-white p-3 rounded font-bold hover:bg-gray-900 transition cursor-pointer">Send Message</button>
             </form>
         </div>
     </section>
 
-    <!-- Service Worker Script Initialization -->
+    <!-- Scripts -->
     <script>
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('./sw.js').catch(err => console.log("SW error: ", err));
-      }
+        // Service Worker Registration
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('./sw.js').catch(err => console.log("SW error: ", err));
+        }
+
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('hidden');
+        });
+
+        // Keyboard Support for Interactive Flip Cards
+        document.querySelectorAll('.flip-card').forEach(card => {
+            card.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    card.classList.toggle('flipped');
+                }
+            });
+        });
     </script>
 </body>
 </html>
