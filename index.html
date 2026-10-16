@@ -127,6 +127,7 @@
                 <a href="#creed" class="text-gray-600 hover:text-gray-900 transition px-1 py-1">Creed</a>
                 <a href="#gallery" class="text-gray-600 hover:text-gray-900 transition px-1 py-1">Gallery</a>
                 <a href="#contact" class="bg-blue-600 text-white px-2.5 py-1.5 rounded hover:bg-blue-700 transition text-center whitespace-nowrap normal-case w-full md:w-auto">Volunteer</a>
+                <a href="#waitlist-modal" id="openWaitlistBtn" style="background-color: #e5a93c; color: #ffffff; padding: 10px 18px; border-radius: 6px; text-decoration: none; font-weight: bold; display: inline-block;">Join Waitlist</a>
                 <a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-16468" target="_blank" rel="noopener noreferrer" class="bg-green-600 text-white px-2.5 py-1.5 rounded hover:bg-green-700 transition text-center whitespace-nowrap normal-case w-full md:w-auto">Donate</a>
             </div>
         </div>
@@ -474,5 +475,83 @@
     <footer class="text-center py-6 text-sm text-gray-600">
   <p>© 2026 Sweet Legacy Youth Leadership Foundation Inc. | <a href="privacy.html" class="underline hover:text-gray-900">Privacy Policy</a></p>
 </footer>
+<!-- WORKSHOP WAITLIST MODAL -->
+<div id="waitlist-modal" class="modal" style="display:none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.6);">
+  <div class="modal-content" style="background-color: #ffffff; margin: 5% auto; padding: 25px; border-radius: 8px; max-width: 520px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); position: relative; font-family: inherit;">
+    
+    <!-- Close Button -->
+    <span id="closeWaitlistBtn" style="position: absolute; right: 20px; top: 15px; font-size: 28px; font-weight: bold; cursor: pointer; color: #666;">&times;</span>
+    
+    <h2 style="margin-top: 0; color: #2e5a36;">Join Our Workshop Waitlist 🌱</h2>
+    <p style="font-size: 14px; color: #555; line-height: 1.5;">Be the first to know when dates, times, and registration open for our upcoming youth workshops!</p>
+    
+    <form action="https://formspree.io/f/xqpewwwd" method="POST" style="display: flex; flex-direction: column; gap: 14px; margin-top: 15px;">
+      
+      <!-- Parent/Guardian Name -->
+      <div>
+        <label style="display: block; font-weight: 600; margin-bottom: 5px; font-size: 14px;">Parent / Guardian Name *</label>
+        <input type="text" name="parent_name" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box;">
+      </div>
+
+      <!-- Email Address -->
+      <div>
+        <label style="display: block; font-weight: 600; margin-bottom: 5px; font-size: 14px;">Email Address *</label>
+        <input type="email" name="email" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box;">
+      </div>
+
+      <!-- Phone Number -->
+      <div>
+        <label style="display: block; font-weight: 600; margin-bottom: 5px; font-size: 14px;">Phone Number (Optional)</label>
+        <input type="tel" name="phone" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box;">
+      </div>
+
+      <!-- Youth Age/Grade -->
+      <div>
+        <label style="display: block; font-weight: 600; margin-bottom: 5px; font-size: 14px;">Youth Age(s) / Grade Level</label>
+        <input type="text" name="youth_age_grade" placeholder="e.g., Age 11 (6th Grade)" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box;">
+      </div>
+
+      <!-- Workshop Interests -->
+      <div>
+        <label style="display: block; font-weight: 600; margin-bottom: 5px; font-size: 14px;">Programs of Interest (Select all that apply):</label>
+        <div style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; color: #444;">
+          <label><input type="checkbox" name="interest_gardening" value="Yes"> Small-Space & Container Gardening</label>
+          <label><input type="checkbox" name="interest_home_ec" value="Yes"> Home Economics & Kitchen Basics</label>
+          <label><input type="checkbox" name="interest_budgeting" value="Yes"> Practical Budgeting & Youth Enterprise</label>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" style="background-color: #2e5a36; color: #ffffff; padding: 12px; font-size: 16px; font-weight: bold; border: none; border-radius: 5px; cursor: pointer; margin-top: 10px;">
+        Submit & Reserve Spot
+      </button>
+
+    </form>
+  </div>
+</div>
+<script>
+  const waitlistModal = document.getElementById("waitlist-modal");
+  const openWaitlistBtn = document.getElementById("openWaitlistBtn");
+  const closeWaitlistBtn = document.getElementById("closeWaitlistBtn");
+
+  if (openWaitlistBtn) {
+    openWaitlistBtn.addEventListener("click", function(e) {
+      e.preventDefault();
+      waitlistModal.style.display = "block";
+    });
+  }
+
+  if (closeWaitlistBtn) {
+    closeWaitlistBtn.addEventListener("click", function() {
+      waitlistModal.style.display = "none";
+    });
+  }
+
+  window.addEventListener("click", function(e) {
+    if (e.target === waitlistModal) {
+      waitlistModal.style.display = "none";
+    }
+  });
+</script>
 </body>
 </html>
