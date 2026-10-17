@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
+        
         section, header { scroll-margin-top: 100px; }
         
         .card-border {
@@ -85,20 +86,27 @@
         .focus-card-height, .gallery-card-height { height: 220px; }
 
         .leadership-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: stretch;
-            gap: 1.5rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    gap: 2.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
-        .leadership-card {
-            width: 220px;
-            height: 380px;
-            flex-shrink: 0;
-        }
+.leadership-card {
+    width: 320px;
+    height: 460px;
+    flex-shrink: 0;
+}
+
+.leadership-card .flip-card-front > div { width: 140px; height: 140px; margin-bottom: 1rem; }
+.leadership-card .flip-card-front h3 { font-size: 1.4rem; }
+.leadership-card .flip-card-front p { font-size: 0.95rem; }
+
+.leadership-card .flip-card-back-leadership > p { font-size: 0.85rem; }
+.leadership-card .flip-card-back-leadership ul { font-size: 0.875rem; line-height: 1.5; }
     </style>
 </head>
 <body class="bg-[#9fb195] text-gray-800 antialiased font-sans">
