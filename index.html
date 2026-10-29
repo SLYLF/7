@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-  <meta name="google-site-verification" content="kafA_MnczDE-Los20eNFHb-QQ5DmAMUJ_nRwCoeOITk" />
+    <meta name="google-site-verification" content="kafA_MnczDE-Los20eNFHb-QQ5DmAMUJ_nRwCoeOITk" />
     <link rel="manifest" href="manifest.json">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Sweet Legacy Youth Leadership Foundation - Empowering youth through leadership training, agricultural sustainability, and mentorship.">
     <title>Sweet Legacy Youth Leadership Foundation</title>
     
-    <!-- Stable Tailwind CSS CDN -->
+    <!-- Tailwind CSS CDN & Font Awesome -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        
         section, header { scroll-margin-top: 100px; }
         
         .card-border {
@@ -86,62 +85,63 @@
         .focus-card-height, .gallery-card-height { height: 220px; }
 
         .leadership-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: stretch;
-    gap: 2.5rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: stretch;
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-.leadership-card {
-    width: 320px;
-    height: 460px;
-    flex-shrink: 0;
-}
+        .leadership-card {
+            width: 320px;
+            height: 460px;
+            flex-shrink: 0;
+        }
 
-.leadership-card .flip-card-front > div { width: 140px; height: 140px; margin-bottom: 1rem; }
-.leadership-card .flip-card-front h3 { font-size: 1.4rem; }
-.leadership-card .flip-card-front p { font-size: 0.95rem; }
+        .leadership-card .flip-card-front > div { width: 140px; height: 140px; margin-bottom: 1rem; }
+        .leadership-card .flip-card-front h3 { font-size: 1.4rem; }
+        .leadership-card .flip-card-front p { font-size: 0.95rem; }
 
-.leadership-card .flip-card-back-leadership > p { font-size: 0.85rem; }
-.leadership-card .flip-card-back-leadership ul { font-size: 0.875rem; line-height: 1.5; }
+        .leadership-card .flip-card-back-leadership > p { font-size: 0.85rem; }
+        .leadership-card .flip-card-back-leadership ul { font-size: 0.875rem; line-height: 1.5; }
     </style>
 </head>
 <body class="bg-[#9fb195] text-gray-800 antialiased font-sans">
 
-   <!-- Navigation Header -->
-<nav class="bg-white shadow-sm sticky top-0 z-50 border-b border-[#8ba080]">
-    <div class="max-w-7xl mx-auto px-4 md:px-6 py-3 flex flex-wrap md:flex-nowrap justify-between items-center gap-4">
+    <!-- Navigation Header -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50 border-b border-[#8ba080]">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 py-3 flex flex-wrap md:flex-nowrap justify-between items-center gap-4">
 
-        <!-- LEFT: logo + name -->
-        <div class="flex items-center gap-3 min-w-0">
-            <img class="w-[45px] h-auto object-contain shrink-0" src="Sweetlegacy LOGO1.jpg" alt="Sweet Legacy Foundation Logo">
-            <h1 class="text-xs lg:text-sm font-bold tracking-tight text-gray-900 uppercase">
-                Sweet Legacy Youth Leadership Foundation Inc
-            </h1>
+            <!-- LEFT: logo + name -->
+            <div class="flex items-center gap-3 min-w-0">
+                <img class="w-[45px] h-auto object-contain shrink-0" src="Sweetlegacy LOGO1.jpg" alt="Sweet Legacy Foundation Logo">
+                <h1 class="text-xs lg:text-sm font-bold tracking-tight text-gray-900 uppercase">
+                    Sweet Legacy Youth Leadership Foundation Inc
+                </h1>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="menu-toggle" class="md:hidden text-gray-700 text-xl focus:outline-none" aria-label="Toggle Navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <!-- RIGHT: links + buttons -->
+            <div id="nav-menu" class="hidden md:flex md:ml-auto w-full md:w-auto items-center flex-col md:flex-row md:flex-nowrap gap-2 text-[11px] md:text-xs font-semibold tracking-wide uppercase pt-4 md:pt-0">
+                <a href="#my-story" class="text-gray-600 hover:text-gray-900 transition px-1 py-1 whitespace-nowrap">My Story</a>
+                <a href="#who-we-are" class="text-gray-600 hover:text-gray-900 transition px-1 py-1 whitespace-nowrap">About</a>
+                <a href="#focus" class="text-gray-600 hover:text-gray-900 transition px-1 py-1 whitespace-nowrap">Our Focus</a>
+                <a href="#events" class="text-gray-600 hover:text-gray-900 transition px-1 py-1 whitespace-nowrap">Events</a>
+                <a href="#leadership" class="text-gray-600 hover:text-gray-900 transition px-1 py-1 whitespace-nowrap">Leadership</a>
+                <a href="#creed" class="text-gray-600 hover:text-gray-900 transition px-1 py-1 whitespace-nowrap">Creed</a>
+                <a href="#gallery" class="text-gray-600 hover:text-gray-900 transition px-1 py-1 whitespace-nowrap">Gallery</a>
+                <a href="#contact" class="bg-blue-600 text-white px-2.5 py-1.5 rounded hover:bg-blue-700 transition text-center whitespace-nowrap normal-case w-full md:w-auto">Volunteer</a>
+                <button type="button" id="openWaitlistBtn" class="bg-[#e5a93c] text-white px-2.5 py-1.5 rounded hover:opacity-90 transition text-center whitespace-nowrap normal-case w-full md:w-auto">Join Waitlist</button>
+                <a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-16468" target="_blank" rel="noopener noreferrer" class="bg-green-600 text-white px-2.5 py-1.5 rounded hover:bg-green-700 transition text-center whitespace-nowrap normal-case w-full md:w-auto">Donate</a>
+            </div>
         </div>
-
-        <!-- Mobile Menu Toggle Button -->
-        <button id="menu-toggle" class="md:hidden text-gray-700 text-xl focus:outline-none" aria-label="Toggle Navigation">
-            <i class="fa-solid fa-bars"></i>
-        </button>
-
-        <!-- RIGHT: links + buttons -->
-        <div id="nav-menu" class="hidden md:flex md:ml-auto w-full md:w-auto items-center flex-col md:flex-row md:flex-nowrap gap-2 text-[11px] md:text-xs font-semibold tracking-wide uppercase pt-4 md:pt-0">
-            <a href="#my-story" class="text-gray-600 hover:text-gray-900 transition px-1 py-1 whitespace-nowrap">My Story</a>
-            <a href="#who-we-are" class="text-gray-600 hover:text-gray-900 transition px-1 py-1 whitespace-nowrap">About</a>
-            <a href="#focus" class="text-gray-600 hover:text-gray-900 transition px-1 py-1 whitespace-nowrap">Our Focus</a>
-            <a href="#leadership" class="text-gray-600 hover:text-gray-900 transition px-1 py-1 whitespace-nowrap">Leadership</a>
-            <a href="#creed" class="text-gray-600 hover:text-gray-900 transition px-1 py-1 whitespace-nowrap">Creed</a>
-            <a href="#gallery" class="text-gray-600 hover:text-gray-900 transition px-1 py-1 whitespace-nowrap">Gallery</a>
-            <a href="#contact" class="bg-blue-600 text-white px-2.5 py-1.5 rounded hover:bg-blue-700 transition text-center whitespace-nowrap normal-case w-full md:w-auto">Volunteer</a>
-            <a href="#waitlist-modal" id="openWaitlistBtn" class="bg-[#e5a93c] text-white px-2.5 py-1.5 rounded hover:opacity-90 transition text-center whitespace-nowrap normal-case w-full md:w-auto">Join Waitlist</a>
-            <a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-16468" target="_blank" rel="noopener noreferrer" class="bg-green-600 text-white px-2.5 py-1.5 rounded hover:bg-green-700 transition text-center whitespace-nowrap normal-case w-full md:w-auto">Donate</a>
-        </div>
-    </div>
-</nav>
+    </nav>
 
     <!-- Hero Header -->
     <header class="relative h-[500px] flex items-center justify-center text-center">
@@ -200,7 +200,7 @@
             </div>
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Leadership Training -->
-                <div class="flip-card focus-card-height perspective" tabindex="0" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card focus-card-height perspective" role="button" tabindex="0">
                     <div class="flip-card-inner card-border">
                         <div class="flip-card-front">
                             <i class="fa-solid fa-graduation-cap text-3xl text-blue-600 mb-4"></i>
@@ -216,7 +216,7 @@
                 </div>
 
                 <!-- Community Solutions -->
-                <div class="flip-card focus-card-height perspective" tabindex="0" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card focus-card-height perspective" role="button" tabindex="0">
                     <div class="flip-card-inner card-border">
                         <div class="flip-card-front">
                             <i class="fa-solid fa-users text-3xl text-blue-600 mb-4"></i>
@@ -232,7 +232,7 @@
                 </div>
 
                 <!-- Mentorship -->
-                <div class="flip-card focus-card-height perspective" tabindex="0" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card focus-card-height perspective" role="button" tabindex="0">
                     <div class="flip-card-inner card-border">
                         <div class="flip-card-front">
                             <i class="fa-solid fa-handshake-angle text-3xl text-blue-600 mb-4"></i>
@@ -250,6 +250,41 @@
         </div>
     </section>
 
+    <!-- Upcoming Events & Fundraisers Section -->
+    <section id="events" class="py-16 bg-white border-b border-gray-200">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-10">
+                <span class="text-blue-900 text-xs font-bold tracking-widest uppercase block mb-2">Get Involved</span>
+                <h2 class="text-3xl font-bold text-gray-950">Upcoming Events & Fundraisers</h2>
+            </div>
+
+            <!-- Featured Event Card -->
+            <div class="card-border bg-[#fdfaf5] p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="space-y-3 max-w-2xl text-left">
+                    <div class="flex items-center gap-2">
+                        <span class="inline-block bg-amber-100 text-amber-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                            Upcoming Fundraiser
+                        </span>
+                        <span class="inline-block bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                            Launches November 10th
+                        </span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900">Little Caesars Pizza Kit Fundraiser</h3>
+                    <p class="text-gray-700 text-sm md:text-base leading-relaxed">
+                        Support Sweet Legacy’s youth leadership, life skills, and gardening programs with every pizza kit ordered! 100% of our fundraising proceeds directly empower young leaders with supplies, curriculum resources, and project materials.
+                    </p>
+                </div>
+                
+                <div class="w-full md:w-auto flex flex-col sm:flex-row md:flex-col gap-2 shrink-0">
+                    <div class="bg-gray-100 border border-gray-300 text-gray-700 text-center font-semibold px-5 py-3 rounded-lg text-xs md:text-sm shadow-inner">
+                        <i class="fa-solid fa-clock text-amber-600 mr-1.5"></i>
+                        Online Ordering Link Goes Live Nov 10th
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Leadership & Board Section -->
     <section id="leadership" class="max-w-6xl mx-auto px-4 py-16">
         <div class="text-center mb-10">
@@ -257,9 +292,8 @@
         </div>
         
         <div class="leadership-container">
-            
             <!-- Chantal O'Neill Card -->
-            <div class="flip-card leadership-card perspective" tabindex="0" onclick="this.classList.toggle('flipped')">
+            <div class="flip-card leadership-card perspective" role="button" tabindex="0">
                 <div class="flip-card-inner card-border !bg-white">
                     <div class="flip-card-front">
                         <div class="w-20 h-20 bg-white rounded-full mx-auto mb-3 overflow-hidden border border-gray-300">
@@ -281,7 +315,7 @@
             </div>
 
             <!-- Sarah Mann Card -->
-            <div class="flip-card leadership-card perspective" tabindex="0" onclick="this.classList.toggle('flipped')">
+            <div class="flip-card leadership-card perspective" role="button" tabindex="0">
                 <div class="flip-card-inner card-border !bg-white">
                     <div class="flip-card-front">
                         <div class="w-20 h-20 bg-white rounded-full mx-auto mb-3 overflow-hidden border border-gray-300">
@@ -303,7 +337,7 @@
             </div>
 
             <!-- Nicole Beach Card -->
-            <div class="flip-card leadership-card perspective" tabindex="0" onclick="this.classList.toggle('flipped')">
+            <div class="flip-card leadership-card perspective" role="button" tabindex="0">
                 <div class="flip-card-inner card-border !bg-white">
                     <div class="flip-card-front">
                         <div class="w-20 h-20 bg-white rounded-full mx-auto mb-3 overflow-hidden border border-gray-300">
@@ -324,8 +358,6 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
     </section>
 
@@ -340,15 +372,17 @@
         </div>
     </section>
 
-    <!-- Legacy Gallery Section -->
+    <!-- Legacy Gallery Section (Preview Only) -->
     <section id="gallery" class="max-w-5xl mx-auto px-6 py-16">
-        <div class="text-center mb-12">
+        <div class="text-center mb-10">
             <span class="text-blue-900 text-xs font-bold tracking-widest uppercase block mb-2">Our Footprint</span>
             <h2 class="text-3xl font-bold text-gray-950">The Legacy Gallery</h2>
+            <p class="text-gray-600 text-sm mt-2 max-w-lg mx-auto">A glimpse into our community programs, workshops, and youth leadership in action.</p>
         </div>
+        
         <div class="grid md:grid-cols-3 gap-8">
             <!-- Community Garden -->
-            <div class="flip-card gallery-card-height perspective" tabindex="0" onclick="this.classList.toggle('flipped')">
+            <div class="flip-card gallery-card-height perspective" role="button" tabindex="0">
                 <div class="flip-card-inner card-border">
                     <div class="flip-card-front">
                         <div class="w-14 h-14 bg-green-50 text-green-600 rounded-full flex items-center justify-center mb-4 text-2xl border border-green-100">
@@ -366,7 +400,7 @@
             </div>
 
             <!-- Farm Immersives -->
-            <div class="flip-card gallery-card-height perspective" tabindex="0" onclick="this.classList.toggle('flipped')">
+            <div class="flip-card gallery-card-height perspective" role="button" tabindex="0">
                 <div class="flip-card-inner card-border">
                     <div class="flip-card-front">
                         <div class="w-14 h-14 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center mb-4 text-2xl border border-blue-100">
@@ -384,7 +418,7 @@
             </div>
 
             <!-- Community Service -->
-            <div class="flip-card gallery-card-height perspective" tabindex="0" onclick="this.classList.toggle('flipped')">
+            <div class="flip-card gallery-card-height perspective" role="button" tabindex="0">
                 <div class="flip-card-inner card-border">
                     <div class="flip-card-front">
                         <div class="w-14 h-14 bg-amber-50 text-amber-600 rounded-full flex items-center justify-center mb-4 text-2xl border border-amber-100">
@@ -400,6 +434,14 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        <!-- Button to Trigger Gallery Popup Modal -->
+        <div class="mt-12 text-center">
+            <button type="button" id="openGalleryBtn" class="inline-flex items-center gap-2 bg-white text-gray-900 hover:text-blue-600 font-bold px-6 py-3 rounded-lg border-2 border-gray-300 hover:border-blue-600 shadow-sm transition cursor-pointer">
+                <i class="fa-solid fa-images text-blue-600"></i>
+                <span>Explore Full Gallery & Programs</span>
+            </button>
         </div>
     </section>
 
@@ -424,19 +466,222 @@
     </section>
 
     <!-- Contact Form Section -->
-<section id="contact" class="max-w-xl mx-auto px-6 py-16">
-    <div class="card-border">
-        <h2 class="text-2xl font-bold text-center mb-6">Join Our Mission</h2>
-        <form action="https://formspree.io/f/mlgkvakp" method="POST" class="space-y-4">
-            <input type="text" name="name" placeholder="Name" required class="w-full p-3 border border-gray-900 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
-            <input type="email" name="email" placeholder="Email" required class="w-full p-3 border border-gray-900 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
-            <textarea name="message" placeholder="Message" required class="w-full p-3 border border-gray-900 rounded h-32 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-            <button type="submit" class="w-full bg-black text-white p-3 rounded font-bold hover:bg-gray-900 transition cursor-pointer">Send Message</button>
-        </form>
-    </div>
-</section>
+    <section id="contact" class="max-w-xl mx-auto px-6 py-16">
+        <div class="card-border">
+            <h2 class="text-2xl font-bold text-center mb-6">Join Our Mission</h2>
+            <form action="https://formspree.io/f/mlgkvakp" method="POST" class="space-y-4">
+                <input type="text" name="name" placeholder="Name" required class="w-full p-3 border border-gray-900 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <input type="email" name="email" placeholder="Email" required class="w-full p-3 border border-gray-900 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <textarea name="message" placeholder="Message" required class="w-full p-3 border border-gray-900 rounded h-32 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                <button type="submit" class="w-full bg-black text-white p-3 rounded font-bold hover:bg-gray-900 transition cursor-pointer">Send Message</button>
+            </form>
+        </div>
+    </section>
 
-    <!-- Scripts -->
+    <!-- Footer -->
+    <footer class="text-center py-6 text-sm text-gray-600">
+        <div class="mb-4">
+            <p class="text-sm text-gray-600 mb-2 font-medium">Follow Us</p>
+            <a href="https://www.facebook.com/SweetLegacyFoundation/" target="_blank" rel="noopener noreferrer" class="inline-block" title="Sweet Legacy on Facebook">
+                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="#1877F2">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+            </a>
+        </div>
+        <p>© 2026 Sweet Legacy Youth Leadership Foundation Inc. | <a href="privacy.html" class="underline hover:text-gray-900">Privacy Policy</a></p>
+    </footer>
+
+    <!-- INTERACTIVE GALLERY POPUP MODAL -->
+    <div id="gallery-modal" class="fixed inset-0 z-[9999] hidden overflow-y-auto bg-black/70 p-4 sm:p-6" role="dialog" aria-modal="true" aria-labelledby="gallery-modal-title">
+        <div class="relative mx-auto mt-6 sm:mt-10 w-full max-w-4xl rounded-xl bg-white p-6 sm:p-8 shadow-2xl">
+            <!-- Close Button -->
+            <button id="closeGalleryBtn" type="button" class="absolute right-4 top-3 text-3xl font-bold text-gray-500 hover:text-gray-800 focus:outline-none" aria-label="Close modal">&times;</button>
+            
+            <div class="text-center mb-8 border-b pb-4">
+                <h2 id="gallery-modal-title" class="text-2xl sm:text-3xl font-extrabold text-[#2e5a36] uppercase tracking-wide">Foundation Gallery & Initiatives</h2>
+                <p class="text-sm text-gray-600 mt-1">Explore our current programs, learning modules, and community project footprints.</p>
+            </div>
+
+            <!-- Categorized Program Sections -->
+            <div class="space-y-8 max-h-[70vh] overflow-y-auto px-2">
+                
+                <!-- Section 1: Container Gardening & Ag -->
+                <div class="bg-[#fbfdfa] border border-[#d6e3d2] rounded-lg p-5">
+                    <div class="flex items-center gap-2 mb-3">
+                        <i class="fa-solid fa-seedling text-xl text-green-700"></i>
+                        <h3 class="text-lg font-bold text-gray-900">Small-Space & Container Gardening</h3>
+                    </div>
+                    <p class="text-xs sm:text-sm text-gray-700 leading-relaxed mb-4">
+                        Teaching youth self-reliance and practical sustainability through elevated planter boxes, container gardening methods, and soil stewardship right at home or in school yards.
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="bg-white p-3 rounded border border-gray-200">
+                            <div class="h-36 bg-green-50 rounded flex items-center justify-center text-green-700">
+                                <i class="fa-solid fa-leaf text-3xl"></i>
+                            </div>
+                            <h4 class="font-bold text-xs uppercase tracking-wider text-gray-800 mt-2">Elevated Planter Systems</h4>
+                            <p class="text-[11px] text-gray-600 mt-0.5">Hands-on seedling starts, natural herbs, and vegetable beds.</p>
+                        </div>
+                        <div class="bg-white p-3 rounded border border-gray-200">
+                            <div class="h-36 bg-green-50 rounded flex items-center justify-center text-green-700">
+                                <i class="fa-solid fa-faucet-drip text-3xl"></i>
+                            </div>
+                            <h4 class="font-bold text-xs uppercase tracking-wider text-gray-800 mt-2">Water & Natural Care</h4>
+                            <p class="text-[11px] text-gray-600 mt-0.5">Water conservation methods and patient plant cultivation.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 2: Farm Immersives -->
+                <div class="bg-[#f0f7ff] border border-[#cfe2ff] rounded-lg p-5">
+                    <div class="flex items-center gap-2 mb-3">
+                        <i class="fa-solid fa-tractor text-xl text-blue-700"></i>
+                        <h3 class="text-lg font-bold text-gray-900">Farm Immersives & Field Studies</h3>
+                    </div>
+                    <p class="text-xs sm:text-sm text-gray-700 leading-relaxed mb-4">
+                        Connecting youth directly to working organic lands and agricultural operations across Washington and regional partners to see full-cycle food systems in action.
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="bg-white p-3 rounded border border-gray-200">
+                            <div class="h-36 bg-blue-50 rounded flex items-center justify-center text-blue-700">
+                                <i class="fa-solid fa-sun-plant-wilt text-3xl"></i>
+                            </div>
+                            <h4 class="font-bold text-xs uppercase tracking-wider text-gray-800 mt-2">Soil-to-Table Education</h4>
+                            <p class="text-[11px] text-gray-600 mt-0.5">Understanding crop rotation, harvest timing, and real farming grit.</p>
+                        </div>
+                        <div class="bg-white p-3 rounded border border-gray-200">
+                            <div class="h-36 bg-blue-50 rounded flex items-center justify-center text-blue-700">
+                                <i class="fa-solid fa-video text-3xl"></i>
+                            </div>
+                            <h4 class="font-bold text-xs uppercase tracking-wider text-gray-800 mt-2">Interactive Remote Sessions</h4>
+                            <p class="text-[11px] text-gray-600 mt-0.5">Connecting students to multi-state farm projects digitally.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 3: Community Outreach -->
+                <div class="bg-[#fffbf0] border border-[#ffe6b3] rounded-lg p-5">
+                    <div class="flex items-center gap-2 mb-3">
+                        <i class="fa-solid fa-hand-holding-heart text-xl text-amber-700"></i>
+                        <h3 class="text-lg font-bold text-gray-900">Community Outreach & Service</h3>
+                    </div>
+                    <p class="text-xs sm:text-sm text-gray-700 leading-relaxed mb-4">
+                        Carrying forward a 30-year family standard of feeding the community, organizing support drives, and inspiring youth to be dependable pillars of their neighborhoods.
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="bg-white p-3 rounded border border-gray-200">
+                            <div class="h-36 bg-amber-50 rounded flex items-center justify-center text-amber-700">
+                                <i class="fa-solid fa-utensils text-3xl"></i>
+                            </div>
+                            <h4 class="font-bold text-xs uppercase tracking-wider text-gray-800 mt-2">Soup Kitchen Volunteering</h4>
+                            <p class="text-[11px] text-gray-600 mt-0.5">Real community service that bridges local food with compassion.</p>
+                        </div>
+                        <div class="bg-white p-3 rounded border border-gray-200">
+                            <div class="h-36 bg-amber-50 rounded flex items-center justify-center text-amber-700">
+                                <i class="fa-solid fa-people-group text-3xl"></i>
+                            </div>
+                            <h4 class="font-bold text-xs uppercase tracking-wider text-gray-800 mt-2">Community Care Drives</h4>
+                            <p class="text-[11px] text-gray-600 mt-0.5">Holiday initiatives and essential resource distribution.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 4: Youth Leadership & Workshops -->
+                <div class="bg-gray-50 border border-gray-200 rounded-lg p-5">
+                    <div class="flex items-center gap-2 mb-3">
+                        <i class="fa-solid fa-graduation-cap text-xl text-gray-800"></i>
+                        <h3 class="text-lg font-bold text-gray-900">Youth Leadership & Enterprise</h3>
+                    </div>
+                    <p class="text-xs sm:text-sm text-gray-700 leading-relaxed mb-4">
+                        Equipping participants with business planning, personal finance basics, home economics, and the Sweet Legacy Seed Scholarship ($100).
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="bg-white p-3 rounded border border-gray-200">
+                            <div class="h-36 bg-gray-100 rounded flex items-center justify-center text-gray-700">
+                                <i class="fa-solid fa-file-invoice-dollar text-3xl"></i>
+                            </div>
+                            <h4 class="font-bold text-xs uppercase tracking-wider text-gray-800 mt-2">4-Week Business Plan Track</h4>
+                            <p class="text-[11px] text-gray-600 mt-0.5">Creating actionable project models and pitching ideas.</p>
+                        </div>
+                        <div class="bg-white p-3 rounded border border-gray-200">
+                            <div class="h-36 bg-gray-100 rounded flex items-center justify-center text-gray-700">
+                                <i class="fa-solid fa-award text-3xl"></i>
+                            </div>
+                            <h4 class="font-bold text-xs uppercase tracking-wider text-gray-800 mt-2">Seed Scholarship Award</h4>
+                            <p class="text-[11px] text-gray-600 mt-0.5">Rewarding completion with direct support for youth ventures.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Modal Bottom Close Action -->
+            <div class="mt-6 text-center border-t pt-4">
+                <button type="button" id="closeGalleryFooterBtn" class="bg-gray-800 hover:bg-black text-white px-6 py-2 rounded-lg text-sm font-semibold transition cursor-pointer">
+                    Close Gallery
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- WORKSHOP WAITLIST MODAL -->
+    <div id="waitlist-modal" class="fixed inset-0 z-[9999] hidden overflow-y-auto bg-black/60 p-4 sm:p-6" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="relative mx-auto mt-12 w-full max-w-lg rounded-lg bg-white p-6 shadow-2xl">
+            <!-- Close Button -->
+            <button id="closeWaitlistBtn" type="button" class="absolute right-4 top-3 text-2xl font-bold text-gray-500 hover:text-gray-800 focus:outline-none" aria-label="Close modal">&times;</button>
+            
+            <h2 id="modal-title" class="text-xl font-bold text-[#2e5a36] mb-1">Join Our Waitlist 🌱</h2>
+            <p class="text-sm text-gray-600 mb-4 leading-relaxed">
+                Be the first to know when dates, times, and registration open for our upcoming youth workshops, community events, and programs—or join our interest list to let us know you're interested!
+            </p>
+            
+            <form action="https://formspree.io/f/xqpewwwd" method="POST" class="flex flex-col gap-3.5">
+                <div>
+                    <label class="block text-xs font-semibold text-gray-700 mb-1">Parent / Guardian Name *</label>
+                    <input type="text" name="parent_name" required class="w-full p-2.5 border border-gray-300 rounded focus:ring-2 focus:ring-[#2e5a36] focus:outline-none text-sm">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-gray-700 mb-1">Email Address *</label>
+                    <input type="email" name="email" required class="w-full p-2.5 border border-gray-300 rounded focus:ring-2 focus:ring-[#2e5a36] focus:outline-none text-sm">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-gray-700 mb-1">Phone Number (Optional)</label>
+                    <input type="tel" name="phone" class="w-full p-2.5 border border-gray-300 rounded focus:ring-2 focus:ring-[#2e5a36] focus:outline-none text-sm">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-gray-700 mb-1">Youth Age(s) / Grade Level</label>
+                    <input type="text" name="youth_age_grade" placeholder="e.g., Age 11 (6th Grade)" class="w-full p-2.5 border border-gray-300 rounded focus:ring-2 focus:ring-[#2e5a36] focus:outline-none text-sm">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-gray-700 mb-1">Programs of Interest (Select all that apply):</label>
+                    <div class="flex flex-col gap-1.5 text-xs text-gray-700">
+                        <label class="flex items-center gap-2">
+                            <input type="checkbox" name="interest_gardening" value="Yes" class="rounded text-[#2e5a36] focus:ring-[#2e5a36]">
+                            Small-Space & Container Gardening
+                        </label>
+                        <label class="flex items-center gap-2">
+                            <input type="checkbox" name="interest_home_ec" value="Yes" class="rounded text-[#2e5a36] focus:ring-[#2e5a36]">
+                            Home Economics & Kitchen Basics
+                        </label>
+                        <label class="flex items-center gap-2">
+                            <input type="checkbox" name="interest_budgeting" value="Yes" class="rounded text-[#2e5a36] focus:ring-[#2e5a36]">
+                            Practical Budgeting & Youth Enterprise
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="mt-2 w-full bg-[#2e5a36] hover:bg-[#25492c] text-white py-2.5 px-4 rounded text-sm font-semibold transition cursor-pointer">
+                    Submit & Reserve Spot
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Page Scripts -->
     <script>
         // Service Worker Registration
         if ('serviceWorker' in navigator) {
@@ -446,12 +691,17 @@
         // Mobile Menu Toggle
         const menuToggle = document.getElementById('menu-toggle');
         const navMenu = document.getElementById('nav-menu');
-        menuToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('hidden');
-        });
+        if (menuToggle && navMenu) {
+            menuToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('hidden');
+            });
+        }
 
-        // Keyboard Support for Interactive Flip Cards
+        // Flip Card Interactions (Click + Keyboard)
         document.querySelectorAll('.flip-card').forEach(card => {
+            card.addEventListener('click', () => {
+                card.classList.toggle('flipped');
+            });
             card.addEventListener('keydown', (e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
@@ -459,95 +709,57 @@
                 }
             });
         });
+
+        // Waitlist Modal Controls
+        const waitlistModal = document.getElementById("waitlist-modal");
+        const openWaitlistBtn = document.getElementById("openWaitlistBtn");
+        const closeWaitlistBtn = document.getElementById("closeWaitlistBtn");
+
+        if (openWaitlistBtn && waitlistModal) {
+            openWaitlistBtn.addEventListener("click", () => {
+                waitlistModal.classList.remove("hidden");
+            });
+        }
+
+        if (closeWaitlistBtn && waitlistModal) {
+            closeWaitlistBtn.addEventListener("click", () => {
+                waitlistModal.classList.add("hidden");
+            });
+        }
+
+        // Gallery Modal Controls
+        const galleryModal = document.getElementById("gallery-modal");
+        const openGalleryBtn = document.getElementById("openGalleryBtn");
+        const closeGalleryBtn = document.getElementById("closeGalleryBtn");
+        const closeGalleryFooterBtn = document.getElementById("closeGalleryFooterBtn");
+
+        if (openGalleryBtn && galleryModal) {
+            openGalleryBtn.addEventListener("click", () => {
+                galleryModal.classList.remove("hidden");
+            });
+        }
+
+        if (closeGalleryBtn && galleryModal) {
+            closeGalleryBtn.addEventListener("click", () => {
+                galleryModal.classList.add("hidden");
+            });
+        }
+
+        if (closeGalleryFooterBtn && galleryModal) {
+            closeGalleryFooterBtn.addEventListener("click", () => {
+                galleryModal.classList.add("hidden");
+            });
+        }
+
+        // Background Click to Close Modals
+        window.addEventListener("click", (e) => {
+            if (e.target === waitlistModal) {
+                waitlistModal.classList.add("hidden");
+            }
+            if (e.target === galleryModal) {
+                galleryModal.classList.add("hidden");
+            }
+        });
     </script>
-    <footer class="text-center py-6 text-sm text-gray-600">
-        <div style="margin-bottom: 15px;">
-    <p style="font-size: 14px; color: #555; margin-bottom: 8px; font-weight: 500;">Follow Us</p>
-    <a href="https://www.facebook.com/SweetLegacyFoundation/" target="_blank" rel="noopener noreferrer" style="display: inline-block; text-decoration: none;" title="Sweet Legacy on Facebook">
-      <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="#1877F2">
-        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-      </svg>
-    </a>
-  </div>
-  <p>© 2026 Sweet Legacy Youth Leadership Foundation Inc. | <a href="privacy.html" class="underline hover:text-gray-900">Privacy Policy</a></p>
-</footer>
-<!-- WORKSHOP WAITLIST MODAL -->
-<div id="waitlist-modal" class="modal" style="display:none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.6);">
-  <div class="modal-content" style="background-color: #ffffff; margin: 5% auto; padding: 25px; border-radius: 8px; max-width: 520px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); position: relative; font-family: inherit;">
-    
-    <!-- Close Button -->
-    <span id="closeWaitlistBtn" style="position: absolute; right: 20px; top: 15px; font-size: 28px; font-weight: bold; cursor: pointer; color: #666;">&times;</span>
-    
-    <h2 style="margin-top: 0; color: #2e5a36;">Join Our Waitlist 🌱</h2>
-    <p style="font-size: 14px; color: #555; line-height: 1.5;">Be the first to know when dates, times, and registration open for our upcoming youth workshops, community events, and programs—or join our interest list to let us know you're interested!</p>
-    
-    <form action="https://formspree.io/f/xqpewwwd" method="POST" style="display: flex; flex-direction: column; gap: 14px; margin-top: 15px;">
-      
-      <!-- Parent/Guardian Name -->
-      <div>
-        <label style="display: block; font-weight: 600; margin-bottom: 5px; font-size: 14px;">Parent / Guardian Name *</label>
-        <input type="text" name="parent_name" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box;">
-      </div>
-
-      <!-- Email Address -->
-      <div>
-        <label style="display: block; font-weight: 600; margin-bottom: 5px; font-size: 14px;">Email Address *</label>
-        <input type="email" name="email" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box;">
-      </div>
-
-      <!-- Phone Number -->
-      <div>
-        <label style="display: block; font-weight: 600; margin-bottom: 5px; font-size: 14px;">Phone Number (Optional)</label>
-        <input type="tel" name="phone" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box;">
-      </div>
-
-      <!-- Youth Age/Grade -->
-      <div>
-        <label style="display: block; font-weight: 600; margin-bottom: 5px; font-size: 14px;">Youth Age(s) / Grade Level</label>
-        <input type="text" name="youth_age_grade" placeholder="e.g., Age 11 (6th Grade)" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box;">
-      </div>
-
-      <!-- Workshop Interests -->
-      <div>
-        <label style="display: block; font-weight: 600; margin-bottom: 5px; font-size: 14px;">Programs of Interest (Select all that apply):</label>
-        <div style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; color: #444;">
-          <label><input type="checkbox" name="interest_gardening" value="Yes"> Small-Space & Container Gardening</label>
-          <label><input type="checkbox" name="interest_home_ec" value="Yes"> Home Economics & Kitchen Basics</label>
-          <label><input type="checkbox" name="interest_budgeting" value="Yes"> Practical Budgeting & Youth Enterprise</label>
-        </div>
-      </div>
-
-      <!-- Submit Button -->
-      <button type="submit" style="background-color: #2e5a36; color: #ffffff; padding: 12px; font-size: 16px; font-weight: bold; border: none; border-radius: 5px; cursor: pointer; margin-top: 10px;">
-        Submit & Reserve Spot
-      </button>
-
-    </form>
-  </div>
-</div>
-<script>
-  const waitlistModal = document.getElementById("waitlist-modal");
-  const openWaitlistBtn = document.getElementById("openWaitlistBtn");
-  const closeWaitlistBtn = document.getElementById("closeWaitlistBtn");
-
-  if (openWaitlistBtn) {
-    openWaitlistBtn.addEventListener("click", function(e) {
-      e.preventDefault();
-      waitlistModal.style.display = "block";
-    });
-  }
-
-  if (closeWaitlistBtn) {
-    closeWaitlistBtn.addEventListener("click", function() {
-      waitlistModal.style.display = "none";
-    });
-  }
-
-  window.addEventListener("click", function(e) {
-    if (e.target === waitlistModal) {
-      waitlistModal.style.display = "none";
-    }
-  });
-</script>
 </body>
 </html>
